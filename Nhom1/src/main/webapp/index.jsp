@@ -12,6 +12,10 @@
     <title>Title</title>
 </head>
 <body>
+<<<<<<< HEAD
 <c:redirect url="/index/index.jsp"></c:redirect>
+=======
+<c:redirect url="/admin"></c:redirect>
+>>>>>>> 35843dcfeb4141a873a16bc5fb232eaa4f1c3c38
 </body>
 </html>
