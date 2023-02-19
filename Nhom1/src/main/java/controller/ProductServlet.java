@@ -2,7 +2,7 @@ package controller;
 
 import model.Product;
 import service.IProductService;
-import service.impl.ProductService;
+import service.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,11 +33,31 @@ public class ProductServlet extends HttpServlet {
                     insertUser(request, response);
                     break;
                 case "edit":
+                    performUpdate(request, response);
                     break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void performUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String tenSP = request.getParameter("tenSP");
+        String donGia = request.getParameter("donGia");
+        String soLuong = request.getParameter("soLuong");
+        String loaiSanPham = request.getParameter("loaiSanPham");
+
+        int idSP = Integer.parseInt(request.getParameter("id_sp"));
+
+        Product product = productService.select(idSP);
+        System.out.println(product);
+        product.setTenSP(tenSP);
+        product.setDonGia(donGia);
+        product.setSoLuong(soLuong);
+        product.setLoaiSanPham(loaiSanPham);
+        productService.update(product);
+        response.sendRedirect("/admin");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,13 +71,13 @@ public class ProductServlet extends HttpServlet {
                     showNewForm(request, response);
                     break;
                 case "edit":
+                    showEditForm(request, response);
                     break;
                 case "delete":
-                  int  id = Integer.parseInt(request.getParameter("deleteId"));
+                    int id = Integer.parseInt(request.getParameter("deleteId"));
                     productService.delete(id);
-                    response.sendRedirect("/student");
+                    response.sendRedirect("/admin");
                     break;
-
                 default:
                     listUser(request, response);
                     break;
@@ -66,6 +86,12 @@ public class ProductServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/edit.jsp");
+        dispatcher.forward(request, response);
+    }
+
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<Product> listProduct = productService.selectAll();

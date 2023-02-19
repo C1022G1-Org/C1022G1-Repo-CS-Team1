@@ -406,9 +406,9 @@
                             <td><c:out value="${product.loaiSanPham}"/></td>
                             <td>
                                 <button style="width: 67px; height: 26px; border: none; background: black"><a href="/admin?action=create" style="text-decoration: none;color: white">Add</a></button>
-                                <button style="width: 67px; height: 26px; border: none; background: black"><a href="/admin?action=edit&id_sp=${user.idSP}" style="text-decoration: none;color: white">Edit</a></button>
+                                <button style="width: 67px; height: 26px; border: none; background: black"><a href="/admin?action=edit&id_sp=${product.idSP}" style="text-decoration: none;color: white">Edit</a></button>
                                 <button style="width: 67px; height: 26px; border: none; background: black; color: white " onclick="getDeleteId(${product.idSP})" type="button" data-target="#modelId">
-                                  Delete</button>
+                                    Delete</button>
                             </td>
                         </tr>
                     </c:forEach>
