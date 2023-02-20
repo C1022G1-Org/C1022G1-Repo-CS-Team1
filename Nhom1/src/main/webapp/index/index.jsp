@@ -219,7 +219,7 @@
                                 <a class="nav-link active text-white" aria-current="page" href="admin.jsp">Liên hệ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="dang_ky.jsp">Đăng ký</a>
+                                <a class="nav-link active text-white" aria-current="page" href="register.jsp">Đăng ký</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="login.jsp">Đăng nhập</a>
