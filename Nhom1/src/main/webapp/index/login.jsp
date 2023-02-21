@@ -287,7 +287,7 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng nhập</p>
-                                <form class="mx-1 mx-md-4" action="/index?action=welcome" method="post">
+                                <form class="mx-1 mx-md-4" action="/index?action=login" method="post">
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
@@ -310,7 +310,7 @@
                                         </label>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" class="btn btn-primary btn-lg" value="Đăng nhập"></button>
+                                        <button type="submit" class="btn btn-primary btn-lg" value="Đăng nhập" style="width: 130px;height: 50px; color: white">Đăng nhập</button>
                                     </div>
                                 </form>
                             </div>

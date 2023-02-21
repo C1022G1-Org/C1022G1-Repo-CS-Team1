@@ -216,6 +216,6 @@
 </head>
 <body>
 <%--<c:redirect url="/index/index.jsp"></c:redirect>--%>
-<c:redirect url="/index/product.jsp"></c:redirect>
+<c:redirect url="/index/"></c:redirect>
 </body>
 </html>

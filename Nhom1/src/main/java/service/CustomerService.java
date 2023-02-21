@@ -20,4 +20,9 @@ public class CustomerService implements ICustomerService{
     public void insertCustomer(Customer customer) throws SQLException {
         iCustomerRepository.insertCustomer(customer);
     }
+
+    @Override
+    public Customer login(String user, String pass) throws SQLException {
+        return iCustomerRepository.login(user,pass);
+    }
 }

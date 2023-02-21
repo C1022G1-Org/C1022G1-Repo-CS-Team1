@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Trang chủ</title>
     <link rel="stylesheet" href="/index/css/style.css">
     <link rel="stylesheet" href="/index/css/bootstrap.css">
     <link rel="stylesheet" href="/index/css/bootstrap.min.css">
@@ -210,20 +210,20 @@
                                 <a class="nav-link active text-white" aria-current="page" href="index.jsp">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">Sản phẩm</a>
+                                <a class="nav-link active text-white" aria-current="page" href="product.jsp">Sản phẩm</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="#">Chi tiết</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">Liên hệ</a>
+                                <a class="nav-link active text-white" aria-current="page" href="admin.jsp">Liên hệ</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="dang_ky.jsp">Đăng ký</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="login.jsp">Đăng nhập</a>
-                            </li>
+<%--                            <li class="nav-item">--%>
+<%--                                <a class="nav-link active text-white" aria-current="page" href="register.jsp">Đăng ký</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="nav-item">--%>
+<%--                                <a class="nav-link active text-white" aria-current="page" href="login.jsp">Đăng nhập</a>--%>
+<%--                            </li>--%>
                         </ul>
                         <form class="d-flex" style="margin-top: 16px; margin-right: 10px">
                             <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
@@ -244,13 +244,13 @@
             <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active c-item">
+            <div class="carousel-item active c-item img-fluid">
                 <img src="/index/img/1.jpg" class="d-block w-100 c-img" alt="Slide 1">
             </div>
-            <div class="carousel-item c-item">
+            <div class="carousel-item c-item img-fluid">
                 <img src="/index/img/2.jpg" class="d-block w-100 c-img" alt="Slide 2">
             </div>
-            <div class="carousel-item c-item">
+            <div class="carousel-item c-item img-fluid">
                 <img src="/index/img/3.jpg" class="d-block w-100 c-img" alt="Slide 3">
             </div>
         </div>
@@ -264,96 +264,144 @@
         </button>
     </div>
 </div>
-<section class="vh-100" style="background-color: #eee;">
-    <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-12 col-xl-11">
-                <div class="card text-black" style="border-radius: 25px;">
-                    <div class="card-body p-md-5">
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng ký</p>
-<<<<<<< HEAD
-                                <form class="mx-1 mx-md-4" action="/index?action=create" method="post">
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input placeholder="Tên đăng nhập" type="text" id="tenKH" class="form-control" name="tenKH"/>
-=======
-                                <form class="mx-1 mx-md-4">
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input placeholder="Tên đăng nhập" type="text" id="form3Example1c" class="form-control" />
->>>>>>> 35843dcfeb4141a873a16bc5fb232eaa4f1c3c38
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                        <div class="form-outline flex-fill mb-0">
-<<<<<<< HEAD
-                                            <input placeholder="Số điện thoại" id="soDienThoai" class="form-control" name="soDienThoai"/>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input placeholder="Email" type="email" id="email" class="form-control" name="email"/>
-=======
-                                            <input placeholder="Email" type="email" id="form3Example3c" class="form-control" />
->>>>>>> 35843dcfeb4141a873a16bc5fb232eaa4f1c3c38
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                        <div class="form-outline flex-fill mb-0">
-<<<<<<< HEAD
-                                            <input placeholder="Mật khẩu" type="password" id="matKhau" class="form-control" name="matKhau"/>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <input type="submit" value="Đăng ký"/>
-                                    </div>
-
-                                </form>
-=======
-                                            <input placeholder="Mật khẩu" type="password" id="form3Example4c" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input placeholder="Nhập lại mật khẩu" type="password" id="form3Example4cd" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-check d-flex justify-content-center mb-5">
-                                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                                        <label class="form-check-label" >
-                                            Tôi đồng ý tất cả các yêu cầu <a href="#!">Điều khoản dịch vụ</a>
-                                        </label>
-                                    </div>
-
-                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="button" class="btn btn-primary btn-lg">Đăng ký</button>
-                                    </div>
-
-                                </form>
-
->>>>>>> 35843dcfeb4141a873a16bc5fb232eaa4f1c3c38
-                            </div>
-                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                                <img src="/index/img/nhom1.png"
-                                     class="img-fluid" alt="Sample image">
-
-                            </div>
-                        </div>
-                    </div>
+<div class="row" style="margin: 0px;padding: 0px">
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-check text-warning m-0 mr-3 me-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Bia hãng nhập khẩu</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-shipping-fast text-warning m-0 mr-2 me-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Giao hàng 2h - 4h*</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center mb-4" style="padding: 30px;">
+                    <h1 class="fas fa-exchange-alt text-warning m-0 mr-3 me-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Thanh toán trực tuyến</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-phone-volume text-warning m-0 mr-3 me-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Hỗ trợ 24/7</h5>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+<div class="container-fluid">
+    <div class="row" style="margin: 0px;padding: 0px">
+        <main>
+            <div class="text">
+                <h1>QUÀ TẶNG VALENTINE - ƯU ĐÃI NHÂN ĐÔI</h1>
+                <p>
+                    Valentine là ngày Lễ tình nhân được nhiều bạn trẻ mong đợi nhất trong năm. Và chắc chắn rằng vào
+                    ngày này thì nhiều bạn sẽ rất băn khoăn vì không biết nên chọn quà gì để gây ấn tượng và giúp người
+                    yêu vui vẻ nhất. Hãy đừng lo lắng, Lala Shop sẽ giúp bạn chọn quà nhanh chóng ngay sau khi đọc thông
+                    tin về gợi ý 20 món quà Valentine cho người yêu độc đáo và ý nghĩa nhất năm 2023.
+                </p>
+            </div>
+            <header>
+                <h1>Sản phẫm hot</h1>
+                <p>
+                    <span>&#139;</span>
+                    <span>&#155;</span>
+                </p>
+            </header>
+            <section>
+                <div class="product">
+                    <picture>
+                        <img src="/index/img/sp1.jpg" alt="">
+                    </picture>
+                    <div class="detail">
+                        <p>
+                            <b>Bia Beck’s Ice Sleek</b><br>
+                        </p>
+                        <samp>390000đ</samp>
+                    </div>
+                    <div class="button">
+                        <p class="star">
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                        </p>
+                        <a href="#" class="bg-warning">Thêm</a>
+                    </div>
+                </div>
+                <div class="product">
+                    <picture>
+                        <img src="/index/img/sp2.jpg" alt="">
+                    </picture>
+                    <div class="detail">
+                        <p>
+                            <b>Bia Hoegaarden White</b><br>
+                        </p>
+                        <samp>390000đ</samp>
+                    </div>
+                    <div class="button">
+                        <p class="star">
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                        </p>
+                        <a href="#" class="bg-warning">Thêm</a>
+                    </div>
+                </div>
+                <div class="product">
+                    <picture>
+                        <img src="/index/img/sp3.jpg" alt="">
+                    </picture>
+                    <div class="detail">
+                        <p>
+                            <b>Bia Hoegaarden Peach</b><br>
+                        </p>
+                        <samp>390000đ</samp>
+                    </div>
+                    <div class="button">
+                        <p class="star">
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                        </p>
+                        <a href="#" class="bg-warning">Thêm</a>
+                    </div>
+                </div>
+                <div class="product">
+                    <picture>
+                        <img src="/index/img/sp4.jpg" alt="">
+                    </picture>
+                    <div class="detail">
+                        <p>
+                            <b>Bia Hoegaarden Rosee</b><br>
+                        </p>
+                        <samp>390000đ</samp>
+                    </div>
+                    <div class="button">
+                        <p class="star">
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                            <strong>&star;</strong>
+                        </p>
+                        <a href="#" class="bg-warning">Thêm</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
 <div class="row px-xl-5 pb-3" style="margin: 0px;padding: 0px">
     <div class="container pt-5">
         <div class="col-12 col-center m-auto">

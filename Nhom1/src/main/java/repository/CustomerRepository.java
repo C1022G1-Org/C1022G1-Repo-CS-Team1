@@ -35,6 +35,7 @@ public class CustomerRepository implements ICustomerRepository {
         }
         return connection;
     }
+
     @Override
     public List<Customer> selectAllCustomer() {
         List<Customer> customers = new ArrayList<>();
@@ -49,7 +50,7 @@ public class CustomerRepository implements ICustomerRepository {
                 String soDienThoai = rs.getString("don_gia");
                 String email = rs.getString("so_luong");
                 String matKhau = rs.getString("id_lsp");
-                customers.add(new Customer(idKH,tenKH,soDienThoai,email,matKhau));
+                customers.add(new Customer(idKH, tenKH, soDienThoai, email, matKhau));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -71,6 +72,26 @@ public class CustomerRepository implements ICustomerRepository {
             printSQLException(e);
         }
     }
+
+    @Override
+    public Customer login(String user, String pass) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        preparedStatement = getConnection().prepareStatement("select * from customer where ten_kh=? and pass =?");
+        preparedStatement.setString(1, user);
+        preparedStatement.setString(2, pass);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            return new Customer(resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            );
+        }
+        return null;
+    }
+
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {

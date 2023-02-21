@@ -396,7 +396,7 @@
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 <button style="width: 120px; height: 35px; border: none; background: black ; margin-left: 220px
-"><a href="/product?action=create" style="text-decoration: none;color: white">Add Product</a></button>
+"><a href="/admin?action=create" style="text-decoration: none;color: white">Add Product</a></button>
 
             </div>
             <div class="table-responsive px-2">
@@ -421,10 +421,10 @@
                             <td><c:out value="${product.loaiSanPham}"/></td>
                             <td>
                                 <button style="width: 67px; height: 26px; border: none; background: black"><a
-                                        href="/product?action=edit&id_sp=${product.idSP}"
+                                        href="/admin?action=edit&id_sp=${product.idSP}"
                                         style="text-decoration: none;color: white">Edit</a></button>
                                 <button style="width: 67px; height: 26px; border: none; background: black"><a
-                                        href="/product?action=delete&id_sp=${product.idSP}"
+                                        href="/admin?action=delete&id_sp=${product.idSP}"
                                         style="text-decoration: none;color: white">Delete</a></button>
 
                             </td>

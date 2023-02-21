@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -37,6 +38,9 @@ public class CustomerServlet extends HttpServlet {
                     break;
                 case "edit":
                     break;
+                case "login":
+                    login(request, response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -55,6 +59,9 @@ public class CustomerServlet extends HttpServlet {
                     break;
                 case "edit":
                     break;
+                case "logout":
+//                    logout(request, response);
+//                    break;
                 case "delete":
                     break;
                 case "":
@@ -88,5 +95,25 @@ public class CustomerServlet extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("index/register.jsp");
         dispatcher.forward(request, response);
+    }
+    private void login(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+        Customer customer = iCustomerService.login(user, pass);
+        if (customer == null) {
+            try {
+                response.sendRedirect("index/login.jsp");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                HttpSession httpSession = request.getSession();
+                httpSession.setAttribute("nameAccount", customer);
+                response.sendRedirect("index/index2.jsp");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
