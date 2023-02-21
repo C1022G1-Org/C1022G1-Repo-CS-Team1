@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>User Management Application</title>
+    <title>Trang admin</title>
     <link rel="stylesheet" href="/index/css/bootstrap.css">
     <link rel="stylesheet" href="/index/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -297,56 +297,68 @@
                 padding: 4px
             }
         }
+
         footer {
             background: #101010;
             padding: 86px 0;
         }
+
         .single-content {
             text-align: center;
             padding: 115px 0;
         }
+
         .single-box p {
             color: #fff;
             line-height: 1.9;
         }
+
         .single-box h3 {
             font-size: 16px;
             font-weight: 700;
             color: #fff;
         }
+
         .single-box .card-area i {
             color: #ffffff;
             font-size: 20px;
             margin-right: 10px;
         }
+
         .single-box ul {
             list-style: none;
             padding: 0;
         }
+
         .single-box ul li a {
             text-decoration: none;
             color: #fff;
             line-height: 2.5;
             font-weight: 100;
         }
+
         .single-box h2 {
             color: #fff;
             font-size: 20px;
             font-weight: 700;
         }
+
         #basic-addon2 {
             background: #fe1e4f;
             color: #fff;
         }
+
         .socials i {
             font-size: 18px;
             margin-right: 15px;
         }
+
         @media (max-width: 767px) {
             .single-box {
                 margin-bottom: 50px;
             }
         }
+
         @media (min-width: 768px) and (max-width: 991px) {
             .single-box {
                 margin-bottom: 50px;
@@ -376,41 +388,52 @@
                 <div class="d-flex px-1"><a href="#home" class="active">Sản phẩm</a> <a href="#news">Khách Hàng</a> <a
                         href="#contact">Đơn hàng</a> <a href="#contact">Tài Khoản</a></div>
             </div>
-            <div class="d-flex align-items-center mb-3 px-md-3 px-2"><span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span
-                    class="ps-1">Kiếm</span></span>
-                <form class="example d-flex align-items-center"><input type="text"
-                                                                       placeholder="Tìm kiếm theo tên và id"
-                                                                       name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
+<%--            <div class="d-flex align-items-center mb-3 px-md-3 px-2"><span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span--%>
+<%--                    class="ps-1">Kiếm</span></span>--%>
+<%--                <form class="example d-flex align-items-center"><input type="text"--%>
+<%--                                                                       placeholder="Tìm kiếm theo tên và id"--%>
+<%--                                                                       name="search">--%>
+<%--                    <button type="submit"><i class="fa fa-search"></i></button>--%>
+<%--                </form>--%>
+<%--            </div>--%>
             <div style="margin-left: 10px">
                 <form method="post">
                     <table>
                         <tr>
                             <th style="padding-bottom: 10px">Tên sản phẫm:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="tenSP" id="tenSP" size="45"/>
+                                <input type="text" name="tenSP" id="tenSP" value="${product.ten_sp}" size="45"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="padding-bottom: 10px">Đơn giá:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="donGia" id="donGia" size="45"/>
+                                <input type="text" name="donGia" id="donGia" value="${product.don_gia}" size="45"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="padding-bottom: 10px">Số lượng:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="soLuong" id="soLuong" size="15"/>
+                                <input style="padding-right: 255px" type="text" name="soLuong" id="soLuong" value="${product.so_luong}" size="15"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="padding-bottom: 10px">Loại sản phẩm:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="loaiSanPham" id="loaiSanPham" size="15"/>
+                                <input style="padding-right: 255px" type="text" name="loaiSanPham" id="loaiSanPham" value="${product.loai_sp}" size="15"/>
                             </td>
                         </tr>
+                        <tr >
+                            <%--                            <th style="padding-bottom: 10px">Loại sản phẩm:</th>--%>
+                            <%--                            <td>--%>
+                            <%--                                <select style="padding-bottom: 10px" name="loaiSanPham" id="ten_lsp">--%>
+                            <%--                                    <c:forEach items="${productTypeList}" var="productTypeList" varStatus="stt">--%>
+                            <%--                                        <option value="${productTypeList.ten_lsp}">${ productTypeList.ten_lsp}</option>--%>
+                            <%--                                    </c:forEach>--%>
+                            <%--                                </select>--%>
+
+                            <%--                            </td>--%>
+                            <%--                        </tr>--%>
                         <tr>
                             <td colspan="2" align="center">
                                 <input type="submit" value="Save"/>
@@ -419,53 +442,10 @@
                     </table>
                 </form>
             </div>
-            </div>
         </div>
     </div>
 </div>
-<%--<center>--%>
-<%--    <h1>User Management</h1>--%>
-<%--    <h2>--%>
-<%--        <a href="admin?action=admin">List All Users</a>--%>
-<%--    </h2>--%>
-<%--</center>--%>
-<%--<div align="center">--%>
-<%--    <form method="post">--%>
-<%--        <table border="1" cellpadding="5">--%>
-<%--            <caption>--%>
-<%--                <h2>Add New User</h2>--%>
-<%--            </caption>--%>
-<%--            <tr>--%>
-<%--                <th>Tên sản phẫm:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="tenSP" id="tenSP" size="45"/>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Đơn giá:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="donGia" id="donGia" size="45"/>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Số lượng:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="soLuong" id="soLuong" size="15"/>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Loại sản phẩm:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="loaiSanPham" id="loaiSanPham" size="15"/>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td colspan="2" align="center">--%>
-<%--                    <input type="submit" value="Save"/>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--        </table>--%>
-<%--    </form>--%>
-<%--</div>--%>
+</div>
+
 </body>
 </html>

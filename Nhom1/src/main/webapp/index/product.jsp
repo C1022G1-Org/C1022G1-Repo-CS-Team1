@@ -8,12 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Trang sản phẫm</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background-color: #eee;
         }
@@ -280,7 +285,7 @@
         input.input-box:focus, textarea.input-box:focus {
             color: #212121;
             background-color: #ECEFF1;
-            box-shadow: 0 0 1px 1px # #CFD8DC;
+            box-shadow: 0 0 1px 1px #CFD8DC;
         }
 
         .rm-border:focus {
@@ -333,7 +338,7 @@
 </head>
 <body>
 <header>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding: 0">
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="header-nav">
                 <div class="container-fluid bg-dark">
@@ -351,7 +356,7 @@
                                 <a class="nav-link active text-white" aria-current="page" href="index.jsp">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">Sản phẩm</a>
+                                <a class="nav-link active text-white" aria-current="page" href="product.jsp">Sản phẩm</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="#">Chi tiết</a>

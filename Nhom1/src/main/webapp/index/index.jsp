@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Trang chủ</title>
     <link rel="stylesheet" href="/index/css/style.css">
     <link rel="stylesheet" href="/index/css/bootstrap.css">
     <link rel="stylesheet" href="/index/css/bootstrap.min.css">
@@ -210,7 +210,7 @@
                                 <a class="nav-link active text-white" aria-current="page" href="index.jsp">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">Sản phẩm</a>
+                                <a class="nav-link active text-white" aria-current="page" href="product.jsp">Sản phẩm</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="#">Chi tiết</a>

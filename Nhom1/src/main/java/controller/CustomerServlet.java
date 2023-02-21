@@ -57,6 +57,7 @@ public class CustomerServlet extends HttpServlet {
                     break;
                 case "delete":
                     break;
+                case "":
                 default:
                     listCustomer(request, response);
                     break;

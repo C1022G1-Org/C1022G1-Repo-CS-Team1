@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Trang đăng nhập</title>
     <link rel="stylesheet" href="/index/css/style.css">
     <link rel="stylesheet" href="/index/css/bootstrap.css">
     <link rel="stylesheet" href="/index/css/bootstrap.min.css">
@@ -133,56 +133,68 @@
             background: #555;
             box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
         }
+
         footer {
             background: #101010;
             padding: 86px 0;
         }
+
         .single-content {
             text-align: center;
             padding: 115px 0;
         }
+
         .single-box p {
             color: #fff;
             line-height: 1.9;
         }
+
         .single-box h3 {
             font-size: 16px;
             font-weight: 700;
             color: #fff;
         }
+
         .single-box .card-area i {
             color: #ffffff;
             font-size: 20px;
             margin-right: 10px;
         }
+
         .single-box ul {
             list-style: none;
             padding: 0;
         }
+
         .single-box ul li a {
             text-decoration: none;
             color: #fff;
             line-height: 2.5;
             font-weight: 100;
         }
+
         .single-box h2 {
             color: #fff;
             font-size: 20px;
             font-weight: 700;
         }
+
         #basic-addon2 {
             background: #fe1e4f;
             color: #fff;
         }
+
         .socials i {
             font-size: 18px;
             margin-right: 15px;
         }
+
         @media (max-width: 767px) {
             .single-box {
                 margin-bottom: 50px;
             }
         }
+
         @media (min-width: 768px) and (max-width: 991px) {
             .single-box {
                 margin-bottom: 50px;
@@ -210,7 +222,8 @@
                                 <a class="nav-link active text-white" aria-current="page" href="index.jsp">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">Sản phẩm</a>
+                                <a class="nav-link active text-white" aria-current="page" href="product.jsp">Sản
+                                    phẩm</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="#">Chi tiết</a>
@@ -219,7 +232,8 @@
                                 <a class="nav-link active text-white" aria-current="page" href="#">Liên hệ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="register.jsp">Đăng ký</a>
+                                <a class="nav-link active text-white" aria-current="page" href="register.jsp">Đăng
+                                    ký</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="login.jsp">Đăng nhập</a>
@@ -273,35 +287,36 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng nhập</p>
-                                <form class="mx-1 mx-md-4" action="login" method="post">
+                                <form class="mx-1 mx-md-4" action="/index?action=welcome" method="post">
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input placeholder="Tên đăng nhập" type="text" id="form3Example1c" class="form-control" name="user"/>
+                                            <input placeholder="Tên đăng nhập" type="text" id="user"
+                                                   class="form-control" name="user"/>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input placeholder="Mật khẩu" type="password" id="form3Example4c" class="form-control" name="pass"/>
+                                            <input placeholder="Mật khẩu" type="password" id="pass" class="form-control"
+                                                   name="pass"/>
                                         </div>
                                     </div>
                                     <div class="form-check d-flex justify-content-center mb-5">
-                                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                                        <label class="form-check-label" >
+                                        <input class="form-check-input me-2" type="checkbox" value=""
+                                               id="form2Example3c"/>
+                                        <label class="form-check-label">
                                             Tôi đồng ý tất cả các yêu cầu <a href="#!">Điều khoản dịch vụ</a>
                                         </label>
                                     </div>
-
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" class="btn btn-primary btn-lg" value="Đăng nhập">
+                                        <button type="submit" class="btn btn-primary btn-lg" value="Đăng nhập"></button>
                                     </div>
-
                                 </form>
-
                             </div>
-                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">                                <img src="/index/img/nhom1.png"
-                                     class="img-fluid" alt="Sample image">
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"><img
+                                    src="/index/img/nhom1.png"
+                                    class="img-fluid" alt="Sample image">
                             </div>
                         </div>
                     </div>
@@ -352,7 +367,8 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-box">
                     <img src="/index/img/logo.png" alt="" height="60" width="60">
-                    <p>Đăng kí nhận thông tin ưu đãi hàng tuần của chúng tôi để kịp thời tham gia các chương trình hấp dẫn. </p>
+                    <p>Đăng kí nhận thông tin ưu đãi hàng tuần của chúng tôi để kịp thời tham gia các chương trình hấp
+                        dẫn. </p>
                     <h3>We Accect</h3>
                 </div>
             </div>
@@ -385,7 +401,8 @@
                     <h2>Đăng ký nhận tin khuyến mãi</h2>
                     <p>Vui lòng nhập email | hoặc số điện thoại | hoặc Facebook của bạn tại ô dưới đây:</p>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Vui lòng nhập" aria-label="Enter your Email ..." aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" placeholder="Vui lòng nhập"
+                               aria-label="Enter your Email ..." aria-describedby="basic-addon2">
                         <span class="input-group-text" id="basic-addon2"><i class="fa fa-check"></i></span>
                     </div>
                     <h2>Follow us on</h2>

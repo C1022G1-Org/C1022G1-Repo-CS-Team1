@@ -163,7 +163,7 @@
 
             #image-section img {
                 position: relative;
-                left: 10;
+                left: 10px;
                 top: 20px
             }
 
