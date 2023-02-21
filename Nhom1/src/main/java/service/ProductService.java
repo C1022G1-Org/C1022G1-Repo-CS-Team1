@@ -1,16 +1,16 @@
 package service;
 
-import Repository.IProductRepository;
-import Repository.ProductRepository;
 import model.Product;
-import service.IProductService;
+import model.ProductType;
+import repository.IProductRepository;
+import repository.ProductRepository;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IProductService {
     IProductRepository iProductRepository = new ProductRepository();
-
 
     @Override
     public List<Product> selectAll() {
@@ -30,11 +30,15 @@ public class ProductService implements IProductService {
     @Override
     public void update(Product product) {
         iProductRepository.update(product);
-
     }
 
     @Override
     public Product select(int id) {
         return iProductRepository.select(id);
     }
+
+//    @Override
+//    public List<ProductType> showProductTypeList() {
+//        return iProductRepository.showProductTypeList();
+//    }
 }

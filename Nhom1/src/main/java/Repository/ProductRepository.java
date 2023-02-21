@@ -1,6 +1,7 @@
-package Repository;
+package repository;
 
 import model.Product;
+import model.ProductType;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,9 +15,11 @@ public class ProductRepository implements IProductRepository{
     private static final String INSERT_USERS_SQL = "INSERT INTO product(ten_sp,don_gia,so_luong,id_lsp) VALUES (?,?,?,?);";
     private static final String SELECT_USER_BY_ID = "select p.id_sp, p.ten_sp, p.don_gia, p.so_luong, t.ten_lsp from product p join product_type t on p.id_lsp = t.id_lsp where id_sp =?";
     private static final String SELECT_ALL_USERS ="select p.id_sp, p.ten_sp, p.don_gia,p.so_luong ,t.ten_lsp  from product p join product_type t on p.id_lsp = t.id_lsp";
-    private static final String DELETE_USERS_SQL = "delete from product where id_sp = ?;";
+    private static final String DELETE_USERS_SQL = "delete from product where id_sp = ?";
     private static final String UPDATE_USERS_SQL = "update product set ten_sp=?,don_gia=?,so_luong=?,id_lsp=? where id_sp=?";
 
+    public ProductRepository() {
+    }
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -31,6 +34,22 @@ public class ProductRepository implements IProductRepository{
             e.printStackTrace();
         }
         return connection;
+    }
+
+    private void printSQLException(SQLException ex) {
+        for (Throwable e : ex) {
+            if (e instanceof SQLException) {
+                e.printStackTrace(System.err);
+                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
+                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
+                System.err.println("Message: " + e.getMessage());
+                Throwable t = ex.getCause();
+                while (t != null) {
+                    System.out.println("Cause: " + t);
+                    t = t.getCause();
+                }
+            }
+        }
     }
 
     @Override
@@ -53,6 +72,7 @@ public class ProductRepository implements IProductRepository{
             printSQLException(e);
         }
         return products;
+
     }
     @Override
     public Product select(int id) {
@@ -77,6 +97,30 @@ public class ProductRepository implements IProductRepository{
         }
         return null;
     }
+
+//    @Override
+//    public List<ProductType> showProductTypeList() {
+//
+//        List<ProductType> productTypeList = new ArrayList<>();
+//
+//        try {
+//            Connection connection = getConnection();
+//            PreparedStatement preparedStatement = connection.prepareStatement("select * from product_type");
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            ProductType productType;
+//            while (resultSet.next()){
+//                productType = new ProductType();
+//                productType.getIdLSP(resultSet.getInt("idLSP"));
+//                productType.setTenLSP(resultSet.getString("tenLSP"));
+//                productTypeList.add(productType);
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        return productTypeList;
+//    }
+
     @Override
     public void insert(Product product) throws SQLException {
         System.out.println(INSERT_USERS_SQL);
@@ -96,12 +140,12 @@ public class ProductRepository implements IProductRepository{
     public void delete(int id) {
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USERS_SQL);){
-
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
@@ -121,21 +165,4 @@ public class ProductRepository implements IProductRepository{
         }
     }
 
-
-
-    private void printSQLException(SQLException ex) {
-        for (Throwable e : ex) {
-            if (e instanceof SQLException) {
-                e.printStackTrace(System.err);
-                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
-                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-                System.err.println("Message: " + e.getMessage());
-                Throwable t = ex.getCause();
-                while (t != null) {
-                    System.out.println("Cause: " + t);
-                    t = t.getCause();
-                }
-            }
-        }
-    }
 }

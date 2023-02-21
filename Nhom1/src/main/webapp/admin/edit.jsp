@@ -388,14 +388,7 @@
                 <div class="d-flex px-1"><a href="#home" class="active">Sản phẩm</a> <a href="#news">Khách Hàng</a> <a
                         href="#contact">Đơn hàng</a> <a href="#contact">Tài Khoản</a></div>
             </div>
-            <div class="d-flex align-items-center mb-3 px-md-3 px-2"><span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span
-                    class="ps-1">Kiếm</span></span>
-                <form class="example d-flex align-items-center"><input type="text"
-                                                                       placeholder="Tìm kiếm theo tên và id"
-                                                                       name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
+
             <div style="margin-left: 10px">
                 <form method="post">
                     <table>
@@ -408,27 +401,33 @@
                         <tr>
                             <th style="padding-bottom: 10px">Tên sản phẫm:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="tenSP" id="tenSP" size="45"  />
+                                <input type="text" name="tenSP" id="tenSP" size="45" value="${productDetail.tenSP}"  />
                             </td>
                         </tr>
+
                         <tr>
                             <th style="padding-bottom: 10px">Đơn giá:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="donGia" id="donGia" size="45" />
+                                <input type="text" name="donGia" id="donGia" size="45" value="${productDetail.donGia}" />
                             </td>
                         </tr>
                         <tr>
                             <th style="padding-bottom: 10px">Số lượng:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="soLuong" id="soLuong" size="15"/>
+                                <input type="text" name="soLuong" id="soLuong" size="45" value="${productDetail.soLuong}"/>
                             </td>
                         </tr>
-                        <tr>
+                     <tr>
                             <th style="padding-bottom: 10px">Loại sản phẩm:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="loaiSanPham" id="loaiSanPham" size="15"/>
+                                <select style="padding-right: 275px" name="loaiSanPham" id="loaiSanPham">
+                                    <option ${productDetail.loaiSanPham == "có cồn" ? "selected" : false} value="1">1 - có cồn</option>
+                                    <option ${productDetail.loaiSanPham == "không cồn" ? "selected" : false} value="2">2 - không cồn</option>
+                                    <option ${productDetail.loaiSanPham == "khác" ? "selected" : false} value="3">3 - khác</option>
+                                </select>
                             </td>
                         </tr>
+
                         <tr>
                             <td colspan="2" align="center">
                                 <input type="submit" value="Save"/>

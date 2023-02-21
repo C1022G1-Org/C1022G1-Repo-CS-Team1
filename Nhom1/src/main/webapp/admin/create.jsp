@@ -388,41 +388,40 @@
                 <div class="d-flex px-1"><a href="#home" class="active">Sản phẩm</a> <a href="#news">Khách Hàng</a> <a
                         href="#contact">Đơn hàng</a> <a href="#contact">Tài Khoản</a></div>
             </div>
-            <div class="d-flex align-items-center mb-3 px-md-3 px-2"><span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span
-                    class="ps-1">Kiếm</span></span>
-                <form class="example d-flex align-items-center"><input type="text"
-                                                                       placeholder="Tìm kiếm theo tên và id"
-                                                                       name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
+
             <div style="margin-left: 10px">
                 <form method="post">
                     <table>
                         <tr>
                             <th style="padding-bottom: 10px">Tên sản phẫm:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="tenSP" id="tenSP" size="45"/>
+                                <input type="text" name="tenSP" id="tenSP" value="${product.ten_sp}" size="45"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="padding-bottom: 10px">Đơn giá:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="donGia" id="donGia" size="45"/>
+                                <input type="text" name="donGia" id="donGia" value="${product.don_gia}" size="45"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="padding-bottom: 10px">Số lượng:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="soLuong" id="soLuong" size="15"/>
+                                <input style="padding-right: 262px" type="text" name="soLuong" id="soLuong" value="${product.so_luong}" size="15"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="padding-bottom: 10px">Loại sản phẩm:</th>
                             <td style="padding-bottom: 10px">
-                                <input type="text" name="loaiSanPham" id="loaiSanPham" size="15"/>
+                                <select style="padding-right: 275px" name="loaiSanPham" id="loaiSanPham">
+                                    <option selected value="1">1 - có cồn</option>
+                                    <option value="2">2 - không cồn</option>
+                                    <option value="3">3 - khác</option>
+                                </select>
                             </td>
                         </tr>
+                        <tr >
+
                         <tr>
                             <td colspan="2" align="center">
                                 <input type="submit" value="Save"/>

@@ -1,6 +1,7 @@
 package controller;
 
 import model.Product;
+import model.ProductType;
 import service.IProductService;
 import service.ProductService;
 
@@ -16,7 +17,6 @@ import java.util.List;
 
 @WebServlet(name = "ProductServlet",urlPatterns = "/admin")
 public class ProductServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
     private IProductService productService;
 
     public void init() {
@@ -61,23 +61,30 @@ public class ProductServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+                String action = request.getParameter("action");
         if (action == null) {
             action = "";
         }
         try {
             switch (action) {
                 case "create":
-                    showNewForm(request, response);
+                    showCreateForm(request, response);
                     break;
                 case "edit":
                     showEditForm(request, response);
                     break;
                 case "delete":
-                    int id = Integer.parseInt(request.getParameter("deleteId"));
-                    productService.delete(id);
+                    int idSP = Integer.parseInt(request.getParameter("id_sp"));
+                    productService.delete(idSP);
                     response.sendRedirect("/admin");
                     break;
+//                case "productTypeList":
+//                    request.setAttribute("productTypeList",productService.showProductTypeList());
+//                    request.getRequestDispatcher("/product/list.jsp").forward(request,response);
+
+//                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -88,6 +95,9 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int idSP = Integer.parseInt(request.getParameter("id_sp"));
+        Product productDetail = productService.select(idSP);
+        request.setAttribute("productDetail", productDetail);
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/edit.jsp");
         dispatcher.forward(request, response);
     }
@@ -96,22 +106,38 @@ public class ProductServlet extends HttpServlet {
             throws SQLException, IOException, ServletException {
         List<Product> listProduct = productService.selectAll();
         request.setAttribute("listProduct", listProduct);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/list.jsp");
         dispatcher.forward(request, response);
     }
     private void insertUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-        String tenSP = request.getParameter("tenSP");
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+                String tenSP = request.getParameter("tenSP");
         String donGia = request.getParameter("donGia");
         String soLuong = request.getParameter("soLuong");
         String loaiSanPham = request.getParameter("loaiSanPham");
-        Product product = new Product(tenSP,donGia,soLuong,loaiSanPham);
+        int idLSP = 0;
+        switch (loaiSanPham) {
+            case "có cồn":
+                idLSP = 1;
+                break;
+            case "không cồn":
+                idLSP = 2;
+                break;
+            case "khác":
+                idLSP = 3;
+                break;
+        }
+        Product product = new Product(idLSP,tenSP,donGia,soLuong,loaiSanPham);
         productService.insert(product);
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/create.jsp");
         dispatcher.forward(request, response);
     }
-    private void showNewForm(HttpServletRequest request, HttpServletResponse response)
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+//        List<ProductType> productTypeList = productService.showProductTypeList();
+//        request.setAttribute("productTypeList", productTypeList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/create.jsp");
         dispatcher.forward(request, response);
     }

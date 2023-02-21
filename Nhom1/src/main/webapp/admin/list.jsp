@@ -297,56 +297,68 @@
                 padding: 4px
             }
         }
+
         footer {
             background: #101010;
             padding: 86px 0;
         }
+
         .single-content {
             text-align: center;
             padding: 115px 0;
         }
+
         .single-box p {
             color: #fff;
             line-height: 1.9;
         }
+
         .single-box h3 {
             font-size: 16px;
             font-weight: 700;
             color: #fff;
         }
+
         .single-box .card-area i {
             color: #ffffff;
             font-size: 20px;
             margin-right: 10px;
         }
+
         .single-box ul {
             list-style: none;
             padding: 0;
         }
+
         .single-box ul li a {
             text-decoration: none;
             color: #fff;
             line-height: 2.5;
             font-weight: 100;
         }
+
         .single-box h2 {
             color: #fff;
             font-size: 20px;
             font-weight: 700;
         }
+
         #basic-addon2 {
             background: #fe1e4f;
             color: #fff;
         }
+
         .socials i {
             font-size: 18px;
             margin-right: 15px;
         }
+
         @media (max-width: 767px) {
             .single-box {
                 margin-bottom: 50px;
             }
         }
+
         @media (min-width: 768px) and (max-width: 991px) {
             .single-box {
                 margin-bottom: 50px;
@@ -376,13 +388,16 @@
                 <div class="d-flex px-1"><a href="#home" class="active">Sản phẩm</a> <a href="#news">Khách Hàng</a> <a
                         href="#contact">Đơn hàng</a> <a href="#contact">Tài Khoản</a></div>
             </div>
-            <div class="d-flex align-items-center mb-3 px-md-3 px-2"><span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span
-                    class="ps-1">Kiếm</span></span>
-                <form class="example d-flex align-items-center"><input type="text"
-                                                                       placeholder="Tìm kiếm theo tên và id"
-                                                                       name="search">
+
+            <div class="d-flex align-items-center mb-3 px-md-3 px-2">
+                <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
+                <form class="example d-flex align-items-center">
+                    <input type="text" placeholder="Tìm kiếm theo tên và id" name="search" style="width: 40%;">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
+                <button style="width: 120px; height: 35px; border: none; background: black ; margin-left: 220px
+"><a href="/admin?action=create" style="text-decoration: none;color: white">Add Product</a></button>
+
             </div>
             <div class="table-responsive px-2">
                 <table class="table">
@@ -405,10 +420,14 @@
                             <td><c:out value="${product.soLuong}"/></td>
                             <td><c:out value="${product.loaiSanPham}"/></td>
                             <td>
-                                <button style="width: 67px; height: 26px; border: none; background: black"><a href="/admin?action=create" style="text-decoration: none;color: white">Add</a></button>
-                                <button style="width: 67px; height: 26px; border: none; background: black"><a href="/admin?action=edit&id_sp=${product.idSP}" style="text-decoration: none;color: white">Edit</a></button>
-                                <button style="width: 67px; height: 26px; border: none; background: black; color: white " onclick="getDeleteId(${product.idSP})" type="button" data-target="#modelId">
-                                    Delete</button>
+                                <button style="width: 67px; height: 26px; border: none; background: black"><a
+                                        href="/admin?action=edit&id_sp=${product.idSP}"
+                                        style="text-decoration: none;color: white">Edit</a></button>
+                                <button style="color: white; width: 67px; height: 26px; border: none; background: black"
+                                        onclick="getDeleteId(${product.idSP})">
+                                    Delete
+                                </button>
+
                             </td>
                         </tr>
                     </c:forEach>
@@ -418,27 +437,28 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+<div class="modal fade" style="overflow-y: hidden" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog position-relative" style="height: 100%">
+        <div class="modal-content"
+             style="position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Product Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                Bạn có chắc chắn muốn xóa hay không?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <form action="/student" method="get">
-                    <input type="hidden" value="delete" name="action">
-                    <input type="hidden" id="deleteId" name="deleteId">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </form>
-            </div>
+            <form action="/admin" method="get">
+                <div class="modal-body">
+                    Confirm delete this item <span style="color: red;" id="deleteId"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">No</button>
+                    <button type="submit" class="btn btn-danger">
+                        <a style="text-decoration: none;color: white;" href="/admin?action=delete&id_sp=?" id="linkDelete">Yes</a>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -449,7 +469,8 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-box">
                     <img src="/index/img/logo.png" alt="" height="60" width="60">
-                    <p>Đăng kí nhận thông tin ưu đãi hàng tuần của chúng tôi để kịp thời tham gia các chương trình hấp dẫn. </p>
+                    <p>Đăng kí nhận thông tin ưu đãi hàng tuần của chúng tôi để kịp thời tham gia các chương trình hấp
+                        dẫn. </p>
                     <h3>We Accect</h3>
                 </div>
             </div>
@@ -482,7 +503,8 @@
                     <h2>Đăng ký nhận tin khuyến mãi</h2>
                     <p>Vui lòng nhập email | hoặc số điện thoại | hoặc Facebook của bạn tại ô dưới đây:</p>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Vui lòng nhập" aria-label="Enter your Email ..." aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" placeholder="Vui lòng nhập"
+                               aria-label="Enter your Email ..." aria-describedby="basic-addon2">
                         <span class="input-group-text" id="basic-addon2"><i class="fa fa-check"></i></span>
                     </div>
                     <h2>Follow us on</h2>
@@ -492,9 +514,20 @@
     </div>
 </footer>
 <script>
-    function getDeleteId(id) {
-        document.getElementById("deleteId").value = id;
+    function getDeleteId(id_sp) {
+        const toast = document.getElementById("exampleModal");
+        toast.style.display="block"
+        toast.style.opacity="1"
+        document.getElementById("deleteId").textContent=id_sp + " ?"
+        document.getElementById("linkDelete").href="/admin?action=delete&id_sp="+id_sp
     }
+    function closeModal() {
+        const toast = document.getElementById("exampleModal");
+        toast.style.display="none"
+        toast.style.opacity="0"
+    }
+
+
 
 </script>
 </body>
